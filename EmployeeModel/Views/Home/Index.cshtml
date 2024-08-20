@@ -1,0 +1,79 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<button class="btn btn-sm btn-primary m-2" id="employeeAddBtn" onclick="openModal()">Add Employee</button>
+
+<table class="table table-bordered">
+    <thead>
+        <tr class="text-center">
+            <th>Id</th>
+            <th>Name</th>
+            <th>City</th>
+            <th>Country</th>
+            <th>Salary</th>
+            <th>Department</th>
+        </tr>
+    </thead>
+    <tbody class="text-center" id="table_data">
+        <!-- Table data will be dynamically added here -->
+    </tbody>
+</table>
+
+<!-- Modal -->
+<div class="modal" id="modal1" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">Add Employee</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="employeeForm">
+                    <div class="form-group">
+                        <label for="employeeId">Id</label>
+                        <input type="text" class="form-control" id="employeeId" disabled="disabled">
+                    </div>
+                    <div class="form-group">
+                        <label for="employeeName">Name</label>
+                        <input type="text" class="form-control" id="employeeName" placeholder="Enter employee name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="employeeCity">City</label>
+                        <input type="text" class="form-control" id="employeeCity" placeholder="Enter city" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="employeeCountry">Country</label>
+                        <input type="text" class="form-control" id="employeeCountry" placeholder="Enter country" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="employeeSalary">Salary</label>
+                        <input type="number" class="form-control" id="employeeSalary" placeholder="Enter salary" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="employeeDepartment">Department</label>
+                        <input type="text" class="form-control" id="employeeDepartment" placeholder="Enter department" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="saveEmployeeBtn" onclick="AddEmployee()">Save changes</button>
+                <button type="button" class="btn btn-warning" id="updateEmployeeBtn" onclick="Update()" style="display:none">Update</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+<script src="~/js/home.js"></script>
+<script>
+    function openModal() {
+        $('#modal1').modal('show');
+    }
+</script>
+<!-- Bootstrap CSS -->
